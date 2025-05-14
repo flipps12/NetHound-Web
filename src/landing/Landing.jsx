@@ -1,7 +1,9 @@
 import React from "react";
 import ObjLoaderComponent from "../ObjLoaderComponent";
+import { useLenis } from '../hooks/useLenis'
 
 function Landing() {
+  useLenis()
   return (
     <div className="Landing h-screen bg-black">
       <nav>
@@ -27,7 +29,7 @@ function Landing() {
           <ObjLoaderComponent />
         </div>
       </div>
-      <div className="w-screen h-screen">a</div>
+      <div className="w-full h-screen"></div>
       <footer>
         <div className="flex flex-row justify-between items-center p-4 text-white border-t-2 border-gray-500">
           <div className="text-sm">NetHound - 2025</div>
