@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // Importar GLTFLoader
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"; // Importar OrbitControls
 
 const ObjLoaderComponent = () => {
@@ -58,12 +59,14 @@ const ObjLoaderComponent = () => {
     directionalLight.shadow.camera.far = 50;
 
     // Cargar el modelo .obj
-    const loader = new OBJLoader();
+    const loader = new GLTFLoader();
     let loadedObject = null;
 
     loader.load(
-      "./tinker.obj", // Ruta a tu archivo .obj, asegúrate que sea correcta
-      (object) => {
+      "./nethound.glb", // Ruta a tu archivo .obj, asegúrate que sea correcta
+      (gltf) => {
+        const object = gltf.scene;
+
         // Asegúrate de que el objeto tenga un material blanco
         object.traverse((child) => {
           if (child.isMesh) {
@@ -80,7 +83,7 @@ const ObjLoaderComponent = () => {
         // Escalar el objeto para que no sea tan grande
         object.scale.set(0.2, 0.2, 0.2); // Ajusta el tamaño aquí
         object.position.set(0, -10, 0); // Centrado en la escena
-        object.rotation.set(Math.PI * 0.5, Math.PI, Math.PI * 0.5); // Rotación inicial
+        object.rotation.set(0, Math.PI * 0.8, 0); // Rotación inicial
         scene.add(object);
 
         loadedObject = object; // Guardamos el objeto cargado
@@ -113,8 +116,7 @@ const ObjLoaderComponent = () => {
 
       // Hacer que el objeto gire (si ha sido cargado)
       if (loadedObject) {
-        loadedObject.rotation.z = window.scrollY * 0.005 - 0.8; // Gira el objeto alrededor del eje Y
-        console.log(window.scrollY);
+        loadedObject.rotation.y = (window.scrollY) / 200 + Math.PI * 0.8; // Gira el objeto alrededor del eje Y
       }
 
       // Actualizar controles para que se mueva con el ratón
