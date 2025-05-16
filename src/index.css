@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'Osiris';
+  src: url('/fonts/Osiris.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   background-color: black;
@@ -8,6 +14,17 @@ body {
 
 .main-landing {
   height: 80vh;
+}
+
+.osiris {
+  font-family: "Osiris", sans-serif;
+  line-height: 0.3lh;
+  margin-left: 5px;
+}
+
+h1 {
+  line-height: 2.5lh;
+  font-size: 72px;
 }
 
 .three-container {

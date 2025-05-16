@@ -22,7 +22,8 @@ function Landing() {
       <main className="ml-40 flex flex-col gap-30">
         <div className="flex flex-row text-white main-landing py-12">
           <div className="flex-1 flex flex-col justify-center h-full">
-            <h1 className="font-bold text-7xl">NetHound</h1>
+            <label className="text-white osiris ">Prototype</label>
+            <h1 className="font-bold">NetHound</h1>
             <ul className="list-disc px-8 text-xl">
               <li>Raspberry pi 5 Project</li>
               <li className="">Proteccion de redes WiFi</li>
@@ -43,6 +44,13 @@ function Landing() {
             />
           </div>
         </div>
+        <div className="w-full main-landing">
+          <div className="w-1/2 flex flex-col justify-center">
+            <h2 className="text-white text-4xl font-bold">A futuro</h2>
+          </div>
+        </div>
+        {/* <div className="w-full main-landing">
+        </div> */}
       </main>
       <footer className="">
         <div className="flex flex-row justify-between items-center p-4 text-white border-t-1 border-gray-500">
